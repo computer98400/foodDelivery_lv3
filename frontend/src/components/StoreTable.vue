@@ -22,6 +22,7 @@
             <Number label="MenuId" v-model="value.menuId" :editMode="editMode"/>
             <String label="CookingStatus" v-model="value.cookingStatus" :editMode="editMode"/>
             <Number label="OrderId" v-model="value.orderId" :editMode="editMode"/>
+            <String label="Address" v-model="value.address" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>

@@ -14,8 +14,6 @@ public class RiderTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     private Long riderId;
 
     private String address;

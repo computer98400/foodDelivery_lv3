@@ -9,5 +9,5 @@ import lombok.*;
 @ToString
 public class OrderRejected extends AbstractEvent {
 
-    private Long id;
+    private Long orderId;
 }

@@ -66,7 +66,6 @@
             values: [],
             headers: 
                 [
-                    { text: "id", value: "id" },
                     { text: "riderId", value: "riderId" },
                     { text: "address", value: "address" },
                     { text: "userId", value: "userId" },

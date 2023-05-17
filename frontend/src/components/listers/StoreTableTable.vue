@@ -71,6 +71,7 @@
                     { text: "menuId", value: "menuId" },
                     { text: "cookingStatus", value: "cookingStatus" },
                     { text: "orderId", value: "orderId" },
+                    { text: "address", value: "address" },
                 ],
             storeTable : [],
             newValue: {},
@@ -93,6 +94,7 @@
                 'menuId': 0,
                 'cookingStatus': '',
                 'orderId': 0,
+                'address': '',
             }
         },
         methods: {

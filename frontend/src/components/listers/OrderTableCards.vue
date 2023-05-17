@@ -68,11 +68,14 @@
             me.values = temp.data._embedded.orderTables;
             
             me.newValue = {
+                'orderId': 0,
                 'userId': 0,
                 'menuId': 0,
                 'orderStatus': '',
                 'address': '',
                 'userName': '',
+                'storeId': 0,
+                'storeName': '',
             }
         },
         methods:{

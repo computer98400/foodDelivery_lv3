@@ -15,7 +15,7 @@ public class OrderTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long orderId;
 
     private Long userId;
 
@@ -26,6 +26,10 @@ public class OrderTable {
     private String address;
 
     private String userName;
+
+    private Long storeId;
+
+    private String storeName;
 
     @PostPersist
     public void onPostPersist() {
@@ -108,6 +112,30 @@ public class OrderTable {
         /** Example 2:  finding and process
         
         repository().findById(orderRejected.get???()).ifPresent(orderTable->{
+            
+            orderTable // do something
+            repository().save(orderTable);
+
+            OrderFinished orderFinished = new OrderFinished(orderTable);
+            orderFinished.publishAfterCommit();
+
+         });
+        */
+
+    }
+
+    public static void orderProcess(OrderAccepted orderAccepted) {
+        /** Example 1:  new item 
+        OrderTable orderTable = new OrderTable();
+        repository().save(orderTable);
+
+        OrderFinished orderFinished = new OrderFinished(orderTable);
+        orderFinished.publishAfterCommit();
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(orderAccepted.get???()).ifPresent(orderTable->{
             
             orderTable // do something
             repository().save(orderTable);

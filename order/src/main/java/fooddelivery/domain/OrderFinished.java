@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class OrderFinished extends AbstractEvent {
 
-    private Long id;
+    private Long orderId;
     private Long userId;
     private Long menuId;
     private String status;

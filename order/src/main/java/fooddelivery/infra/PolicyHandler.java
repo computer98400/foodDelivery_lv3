@@ -69,4 +69,20 @@ public class PolicyHandler {
         // Sample Logic //
         OrderTable.orderProcess(event);
     }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='OrderAccepted'"
+    )
+    public void wheneverOrderAccepted_OrderProcess(
+        @Payload OrderAccepted orderAccepted
+    ) {
+        OrderAccepted event = orderAccepted;
+        System.out.println(
+            "\n\n##### listener OrderProcess : " + orderAccepted + "\n\n"
+        );
+
+        // Sample Logic //
+        OrderTable.orderProcess(event);
+    }
 }

@@ -9,5 +9,5 @@ import lombok.*;
 @ToString
 public class DeliveryStarted extends AbstractEvent {
 
-    private Long id;
+    private Long orderId;
 }

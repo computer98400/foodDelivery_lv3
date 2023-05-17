@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class DeliveryFinished extends AbstractEvent {
 
-    private Long id;
+    private Long orderId;
 
     public DeliveryFinished(RiderTable aggregate) {
         super(aggregate);

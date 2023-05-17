@@ -17,11 +17,14 @@
         </v-card-title >
 
         <v-card-text>
+            <Number label="OrderId" v-model="value.orderId" :editMode="editMode"/>
             <Number label="UserId" v-model="value.userId" :editMode="editMode"/>
             <Number label="MenuId" v-model="value.menuId" :editMode="editMode"/>
             <String label="OrderStatus" v-model="value.orderStatus" :editMode="editMode"/>
             <String label="Address" v-model="value.address" :editMode="editMode"/>
             <String label="UserName" v-model="value.userName" :editMode="editMode"/>
+            <Number label="StoreId" v-model="value.storeId" :editMode="editMode"/>
+            <String label="StoreName" v-model="value.storeName" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>

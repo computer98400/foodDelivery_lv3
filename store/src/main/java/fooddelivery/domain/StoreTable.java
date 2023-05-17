@@ -25,8 +25,13 @@ public class StoreTable {
 
     private Long orderId;
 
+    private String address;
+
     @PostPersist
-    public void onPostPersist() {
+    public void onPostPersist() {}
+
+    @PostUpdate
+    public void onPostUpdate() {
         OrderRejected orderRejected = new OrderRejected(this);
         orderRejected.publishAfterCommit();
 

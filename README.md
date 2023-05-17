@@ -35,15 +35,15 @@ mvn spring-boot:run
 ## Test by API
 - order
 ```
- http :8088/orderTables id="id" userId="userId" menuId="menuId" orderStatus="orderStatus" address="address" userName="userName" 
+ http :8088/orderTables orderId="orderId" userId="userId" menuId="menuId" orderStatus="orderStatus" address="address" userName="userName" storeId="storeId" storeName="storeName" 
 ```
 - store
 ```
- http :8088/storeTables storeId="storeId" storeName="storeName" menuId="menuId" cookingStatus="cookingStatus" orderId="orderId" 
+ http :8088/storeTables storeId="storeId" storeName="storeName" menuId="menuId" cookingStatus="cookingStatus" orderId="orderId" address="address" 
 ```
 - rider
 ```
- http :8088/riderTables id="id" riderId="riderId" address="address" userId="userId" menuId="menuId" riderName="riderName" 
+ http :8088/riderTables riderId="riderId" address="address" userId="userId" menuId="menuId" riderName="riderName" 
 ```
 - mypage
 ```

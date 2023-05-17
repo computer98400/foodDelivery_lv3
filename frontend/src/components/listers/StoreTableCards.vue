@@ -73,6 +73,7 @@
                 'menuId': 0,
                 'cookingStatus': '',
                 'orderId': 0,
+                'address': '',
             }
         },
         methods:{

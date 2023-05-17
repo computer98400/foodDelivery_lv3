@@ -9,7 +9,10 @@ import lombok.*;
 @ToString
 public class CookingProcessed extends AbstractEvent {
 
-    private Long id;
+    private Long storeId;
+    private String storeName;
+    private Long orderId;
+    private String address;
 
     public CookingProcessed(StoreTable aggregate) {
         super(aggregate);
