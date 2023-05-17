@@ -25,7 +25,10 @@ public class StoreTable {
 
     private Long orderId;
 
+    private String status;
+
     @PostPersist
+    
     public void onPostPersist() {
         OrderRejected orderRejected = new OrderRejected(this);
         orderRejected.publishAfterCommit();
@@ -52,13 +55,17 @@ public class StoreTable {
     }
 
     public static void orderStaging(Orderplaced orderplaced) {
-        /** Example 1:  new item 
         StoreTable storeTable = new StoreTable();
+        storeTable.setOrderId(orderplaced.getOrderId());
+        storeTable.setStoreId(orderplaced.getStoreId());
+        storeTable.setStoreName(orderplaced.getStoreName());
+        storeTable.setMenuId(orderplaced.getMenuId());
+        storeTable.setAddress(orderplaced.getAddress());
+        storeTable.setCookingStatus("Order Received");
         repository().save(storeTable);
 
         OrderAccepted orderAccepted = new OrderAccepted(storeTable);
         orderAccepted.publishAfterCommit();
-        */
 
         /** Example 2:  finding and process
         
@@ -76,26 +83,16 @@ public class StoreTable {
     }
 
     public static void orderStaging(OrderCancelled orderCancelled) {
-        /** Example 1:  new item 
-        StoreTable storeTable = new StoreTable();
-        repository().save(storeTable);
 
-        OrderAccepted orderAccepted = new OrderAccepted(storeTable);
-        orderAccepted.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderCancelled.get???()).ifPresent(storeTable->{
+        repository().findById(orderCancelled.getOrderId()).ifPresent(storeTable->{
             
-            storeTable // do something
+            storeTable.setStatus("order Cancelled");
             repository().save(storeTable);
 
             OrderAccepted orderAccepted = new OrderAccepted(storeTable);
             orderAccepted.publishAfterCommit();
 
          });
-        */
 
     }
 }

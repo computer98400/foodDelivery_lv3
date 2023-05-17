@@ -49,19 +49,10 @@ public class OrderTable {
     }
 
     public static void orderProcess(DeliveryFinished deliveryFinished) {
-        /** Example 1:  new item 
-        OrderTable orderTable = new OrderTable();
-        repository().save(orderTable);
 
-        OrderFinished orderFinished = new OrderFinished(orderTable);
-        orderFinished.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(deliveryFinished.get???()).ifPresent(orderTable->{
+        repository().findById(deliveryFinished.getOrderId()).ifPresent(orderTable->{
             
-            orderTable // do something
+            orderTable.setOrderStatus("Delivery Finished");
             repository().save(orderTable);
 
             OrderFinished orderFinished = new OrderFinished(orderTable);
@@ -80,43 +71,28 @@ public class OrderTable {
         OrderFinished orderFinished = new OrderFinished(orderTable);
         orderFinished.publishAfterCommit();
         */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(deliveryStarted.get???()).ifPresent(orderTable->{
-            
-            orderTable // do something
+        repository().findById(deliveryStarted.getOrderId()).ifPresent(orderTable->{
+            orderTable.setOrderStatus("delivery Started");
             repository().save(orderTable);
 
             OrderFinished orderFinished = new OrderFinished(orderTable);
             orderFinished.publishAfterCommit();
 
          });
-        */
 
     }
 
     public static void orderProcess(OrderRejected orderRejected) {
-        /** Example 1:  new item 
-        OrderTable orderTable = new OrderTable();
-        repository().save(orderTable);
-
-        OrderFinished orderFinished = new OrderFinished(orderTable);
-        orderFinished.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(orderRejected.get???()).ifPresent(orderTable->{
+        repository().findById(orderRejected.getOrderId()).ifPresent(orderTable->{
             
-            orderTable // do something
+            orderTable.setOrderStatus("Order Rejected"); // do something
             repository().save(orderTable);
 
             OrderFinished orderFinished = new OrderFinished(orderTable);
             orderFinished.publishAfterCommit();
 
          });
-        */
 
     }
 }

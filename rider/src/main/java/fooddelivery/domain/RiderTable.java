@@ -45,13 +45,17 @@ public class RiderTable {
     }
 
     public static void riderPick(CookingProcessed cookingProcessed) {
-        /** Example 1:  new item 
+
         RiderTable riderTable = new RiderTable();
+        riderTable.setStoreId(cookingProcessed.getStoreId());
+        riderTable.setStoreId(cookingProcessed.getStoreName());
+        riderTable.setAddress(cookingProcessed.getAddress());
+        riderTable.setOrderId(cookingProcessed.getOrderId());
+
         repository().save(riderTable);
 
         DeliveryStarted deliveryStarted = new DeliveryStarted(riderTable);
         deliveryStarted.publishAfterCommit();
-        */
 
         /** Example 2:  finding and process
         
