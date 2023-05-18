@@ -23,6 +23,7 @@ public class StoreTable {
 
     private String cookingStatus;
 
+    private String address;
     private Long orderId;
 
     private String status;
@@ -56,37 +57,25 @@ public class StoreTable {
 
     public static void orderStaging(Orderplaced orderplaced) {
         StoreTable storeTable = new StoreTable();
-        storeTable.setOrderId(orderplaced.getOrderId());
+        storeTable.setOrderId(orderplaced.getId());
         storeTable.setStoreId(orderplaced.getStoreId());
         storeTable.setStoreName(orderplaced.getStoreName());
         storeTable.setMenuId(orderplaced.getMenuId());
         storeTable.setAddress(orderplaced.getAddress());
-        storeTable.setCookingStatus("Order Received");
+        storeTable.setCookingStatus("orderPlaced");
         repository().save(storeTable);
 
         OrderAccepted orderAccepted = new OrderAccepted(storeTable);
         orderAccepted.publishAfterCommit();
 
-        /** Example 2:  finding and process
-        
-        repository().findById(orderplaced.get???()).ifPresent(storeTable->{
-            
-            storeTable // do something
-            repository().save(storeTable);
-
-            OrderAccepted orderAccepted = new OrderAccepted(storeTable);
-            orderAccepted.publishAfterCommit();
-
-         });
-        */
 
     }
 
     public static void orderStaging(OrderCancelled orderCancelled) {
 
-        repository().findById(orderCancelled.getOrderId()).ifPresent(storeTable->{
+        repository().findById(orderCancelled.getId()).ifPresent(storeTable->{
             
-            storeTable.setStatus("order Cancelled");
+            storeTable.setStatus("orderCancelled");
             repository().save(storeTable);
 
             OrderAccepted orderAccepted = new OrderAccepted(storeTable);

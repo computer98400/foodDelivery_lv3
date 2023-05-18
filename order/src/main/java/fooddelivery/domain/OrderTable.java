@@ -27,14 +27,6 @@ public class OrderTable {
 
     private String userName;
 
-    @PostPersist
-    public void onPostPersist() {
-        Orderplaced orderplaced = new Orderplaced(this);
-        orderplaced.publishAfterCommit();
-
-        OrderFinished orderFinished = new OrderFinished(this);
-        orderFinished.publishAfterCommit();
-    }
 
     public static OrderTableRepository repository() {
         OrderTableRepository orderTableRepository = OrderApplication.applicationContext.getBean(
@@ -52,14 +44,13 @@ public class OrderTable {
 
         repository().findById(deliveryFinished.getOrderId()).ifPresent(orderTable->{
             
-            orderTable.setOrderStatus("Delivery Finished");
+            orderTable.setOrderStatus("deliveryFinished");
             repository().save(orderTable);
 
             OrderFinished orderFinished = new OrderFinished(orderTable);
             orderFinished.publishAfterCommit();
 
          });
-        */
 
     }
 
@@ -86,7 +77,7 @@ public class OrderTable {
         
         repository().findById(orderRejected.getOrderId()).ifPresent(orderTable->{
             
-            orderTable.setOrderStatus("Order Rejected"); // do something
+            orderTable.setOrderStatus("orderRejected"); // do something
             repository().save(orderTable);
 
             OrderFinished orderFinished = new OrderFinished(orderTable);

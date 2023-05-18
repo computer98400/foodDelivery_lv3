@@ -10,6 +10,7 @@ import lombok.*;
 public class OrderCancelled extends AbstractEvent {
 
     private Long id;
+    private String status;
 
     public OrderCancelled(OrderTable aggregate) {
         super(aggregate);

@@ -35,7 +35,9 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        StoreTable.orderStaging(event);
+        if(event.getStatus().equals("orderPlaced")) {
+            StoreTable.orderStaging(event);
+        }
     }
 
     @StreamListener(
@@ -51,6 +53,8 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        StoreTable.orderStaging(event);
+        if(event.getStatus().equals("orderCancelled")) {
+            StoreTable.orderStaging(event);
+        }
     }
 }

@@ -17,6 +17,7 @@ public class RiderTable {
     private Long id;
 
     private Long riderId;
+    private Long orderId;
 
     private String address;
 
@@ -25,6 +26,7 @@ public class RiderTable {
     private Long menuId;
 
     private String riderName;
+    private Long storeId;
 
     @PostPersist
     public void onPostPersist() {
@@ -48,7 +50,6 @@ public class RiderTable {
 
         RiderTable riderTable = new RiderTable();
         riderTable.setStoreId(cookingProcessed.getStoreId());
-        riderTable.setStoreId(cookingProcessed.getStoreName());
         riderTable.setAddress(cookingProcessed.getAddress());
         riderTable.setOrderId(cookingProcessed.getOrderId());
 

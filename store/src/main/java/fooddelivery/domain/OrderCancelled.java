@@ -10,4 +10,5 @@ import lombok.*;
 public class OrderCancelled extends AbstractEvent {
 
     private Long id;
+    private String status;
 }

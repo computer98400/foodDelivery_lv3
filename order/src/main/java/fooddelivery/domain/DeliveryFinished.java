@@ -10,4 +10,5 @@ import lombok.*;
 public class DeliveryFinished extends AbstractEvent {
 
     private Long id;
+    private Long orderId;
 }
