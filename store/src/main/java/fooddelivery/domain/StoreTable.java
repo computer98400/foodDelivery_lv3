@@ -55,7 +55,7 @@ public class StoreTable {
         cookingProcessed.publishAfterCommit();
     }
 
-    public static void orderStaging(Orderplaced orderplaced) {
+    public static void orderStaging(OrderPlaced orderplaced) {
         StoreTable storeTable = new StoreTable();
         storeTable.setOrderId(orderplaced.getId());
         storeTable.setStoreId(orderplaced.getStoreId());

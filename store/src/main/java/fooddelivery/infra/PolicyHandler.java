@@ -24,18 +24,18 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='Orderplaced'"
+        condition = "headers['type']=='OrderPlaced'"
     )
-    public void wheneverOrderplaced_OrderStaging(
-        @Payload Orderplaced orderplaced
+    public void wheneverOrderPlaced_OrderStaging(
+        @Payload OrderPlaced orderplaced
     ) {
-        Orderplaced event = orderplaced;
+        OrderPlaced event = orderplaced;
         System.out.println(
             "\n\n##### listener OrderStaging : " + orderplaced + "\n\n"
         );
 
         // Sample Logic //
-        if(event.getStatus().equals("orderPlaced")) {
+        if(event.getOrderStatus().equals("orderPlaced")) {
             StoreTable.orderStaging(event);
         }
     }
@@ -53,7 +53,7 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        if(event.getStatus().equals("orderCancelled")) {
+        if(event.getStatus()!=null && event.getStatus().equals("orderCancelled")) {
             StoreTable.orderStaging(event);
         }
     }
